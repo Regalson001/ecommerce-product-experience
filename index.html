@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VÉNORA — Discover premium products, compare prices, and shop your favorites.">
+  <meta name="theme-color" content="#f7f6f2">
+  <title>VÉNORA | Premium Shopping Experience</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement">
+    Complimentary shipping on orders over $150
+    <span>✦</span>
+    Discover something exceptional.
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="#" class="logo">VÉNORA<span>.</span></a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#shop">Shop</a>
+      <a href="#shop" data-category-link="Technology">Technology</a>
+      <a href="#shop" data-category-link="Fashion">Fashion</a>
+      <a href="#shop" data-category-link="Home">Home & Living</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="header-icon" id="headerSearchBtn" aria-label="Search">⌕</button>
+      <button class="header-icon" id="wishlistBtn" aria-label="Wishlist">
+        ♡ <span id="wishlistCount" class="action-count">0</span>
+      </button>
+      <button class="header-icon cart-button" id="cartBtn" aria-label="Shopping cart">
+        ♧ <span id="cartCount" class="action-count">0</span>
+      </button>
+      <button class="mobile-menu-button" id="mobileMenuBtn" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-eyebrow">THE ART OF GOOD CHOICES</span>
+      <h1>Find your next<br><em>favorite thing.</em></h1>
+      <p>Thoughtfully selected essentials, distinctive design, and exceptional everyday discoveries.</p>
+      <a href="#shop" class="hero-button">Explore Collection <span>↗</span></a>
+      <div class="hero-footnote">CURATED FOR THE WAY YOU LIVE.</div>
+    </div>
+    <div class="hero-image">
+      <img
+        src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&auto=format&fit=crop&q=85"
+        srcset="
+          https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&auto=format&fit=crop&q=80 600w,
+          https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&auto=format&fit=crop&q=85 1200w
+        "
+        sizes="(max-width: 700px) 100vw, 55vw"
+        alt="Premium curated fashion collection"
+        fetchpriority="high"
+      >
+      <div class="hero-image-label">
+        <span>01 / EDITION</span>
+        <strong>Everyday, elevated.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOPPING CONTENT -->
+  <main id="shop" class="shop-section">
+
+    <div class="section-intro">
+      <div>
+        <span class="eyebrow">THE VÉNORA COLLECTION</span>
+        <h2>Considered essentials.</h2>
+        <p>Explore products selected to make everyday living better.</p>
+      </div>
+      <div class="collection-note">QUALITY OVER QUANTITY <span>✳</span></div>
+    </div>
+
+    <div class="shop-layout">
+
+      <!-- FILTER SIDEBAR -->
+      <aside class="filter-sidebar" id="filterSidebar">
+        <div class="filter-heading">
+          <h3>Refine selection</h3>
+          <button id="clearFilters" class="clear-button">Clear all</button>
+        </div>
+
+        <div class="filter-group">
+          <h4>Categories</h4>
+          <label class="filter-option">
+            <input type="radio" name="category" value="all" checked>
+            <span>All products</span>
+            <span class="filter-count" id="count-all">0</span>
+          </label>
+          <label class="filter-option">
+            <input type="radio" name="category" value="Technology">
+            <span>Technology</span>
+          </label>
+          <label class="filter-option">
+            <input type="radio" name="category" value="Fashion">
+            <span>Fashion</span>
+          </label>
+          <label class="filter-option">
+            <input type="radio" name="category" value="Home">
+            <span>Home & Living</span>
+          </label>
+          <label class="filter-option">
+            <input type="radio" name="category" value="Accessories">
+            <span>Accessories</span>
+          </label>
+        </div>
+
+        <div class="filter-divider"></div>
+
+        <div class="filter-group">
+          <h4>Price range</h4>
+          <div class="price-values">
+            <span id="minPriceLabel">$0</span>
+            <span id="maxPriceLabel">$1,000</span>
+          </div>
+          <input
+            type="range"
+            id="priceRange"
+            min="0"
+            max="1000"
+            value="1000"
+            step="10"
+            aria-label="Maximum product price"
+          >
+          <p class="filter-hint">Maximum price: <strong id="priceValue">$1,000</strong></p>
+        </div>
+
+        <div class="filter-divider"></div>
+
+        <div class="filter-group">
+          <h4>Customer rating</h4>
+          <label class="filter-option rating-option">
+            <input type="radio" name="rating" value="0" checked>
+            <span>All ratings</span>
+          </label>
+          <label class="filter-option rating-option">
+            <input type="radio" name="rating" value="4">
+            <span>★★★★☆ & up</span>
+          </label>
+          <label class="filter-option rating-option">
+            <input type="radio" name="rating" value="4.5">
+            <span>★★★★★ 4.5 and up</span>
+          </label>
+        </div>
+
+        <div class="filter-divider"></div>
+
+        <div class="filter-group">
+          <h4>Availability</h4>
+          <label class="filter-option">
+            <input type="checkbox" id="inStockFilter">
+            <span>In stock only</span>
+          </label>
+        </div>
+
+        <button id="mobileApplyFilters" class="mobile-apply-button">Show results</button>
+      </aside>
+
+      <!-- PRODUCT CONTENT -->
+      <section class="product-area">
+
+        <div class="product-toolbar">
+          <div>
+            <button id="mobileFilterBtn" class="mobile-filter-button">☷ Filters</button>
+            <span class="results-count" id="resultsCount">Showing 0 products</span>
+          </div>
+
+          <div class="toolbar-right">
+            <label class="search-field">
+              <span>⌕</span>
+              <input type="search" id="productSearch" placeholder="Find something..." aria-label="Search products">
+            </label>
+
+            <select id="sortSelect" aria-label="Sort products">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Top Rated</option>
+              <option value="popular">Most Popular</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="active-filters" id="activeFilters"></div>
+
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+
+        <div id="emptyState" class="empty-state hidden">
+          <div>⌕</div>
+          <h3>No products found</h3>
+          <p>Try adjusting your filters or search terms.</p>
+          <button id="resetEmptyState" class="reset-button">Reset selection</button>
+        </div>
+
+        <div class="comparison-bar hidden" id="comparisonBar">
+          <span><strong id="compareCount">0</strong> products selected</span>
+          <div>
+            <button id="clearCompare" class="text-button">Clear</button>
+            <button id="openCompare" class="compare-action">Compare products ↗</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div>
+      <span class="eyebrow">THE VÉNORA LETTER</span>
+      <h2>A little inspiration,<br><em>delivered.</em></h2>
+      <p>Discover new arrivals, thoughtful edits, and exclusive updates.</p>
+    </div>
+    <form id="newsletterForm" class="newsletter-form">
+      <label for="newsletterEmail">YOUR EMAIL ADDRESS</label>
+      <div>
+        <input id="newsletterEmail" type="email" placeholder="you@example.com" required>
+        <button type="submit">Subscribe ↗</button>
+      </div>
+      <small>By subscribing, you agree to receive our occasional updates.</small>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a href="#" class="logo">VÉNORA<span>.</span></a>
+    <p>Curated choices. Considered living.</p>
+    <span>© 2026 VÉNORA. Built with intention.</span>
+  </footer>
+
+  <!-- QUICK VIEW DIALOG -->
+  <dialog id="quickViewDialog" class="modal">
+    <div id="quickViewContent"></div>
+    <button class="modal-close" data-close="quickViewDialog" aria-label="Close">✕</button>
+  </dialog>
+
+  <!-- COMPARISON DIALOG -->
+  <dialog id="compareDialog" class="modal comparison-modal">
+    <div class="modal-heading">
+      <span class="eyebrow">SIDE-BY-SIDE ANALYSIS</span>
+      <h2>Product comparison</h2>
+    </div>
+    <div id="comparisonContent"></div>
+    <button class="modal-close" data-close="compareDialog" aria-label="Close">✕</button>
+  </dialog>
+
+  <!-- CART DRAWER -->
+  <div class="drawer-overlay hidden" id="drawerOverlay">
+    <aside class="cart-drawer" aria-label="Shopping cart">
+      <div class="drawer-header">
+        <h2>Your bag <span id="drawerCartCount">(0)</span></h2>
+        <button id="closeCart" aria-label="Close cart">✕</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-bottom">
+        <div class="cart-total">
+          <span>Subtotal</span>
+          <strong id="cartTotal">$0.00</strong>
+        </div>
+        <button id="checkoutBtn" class="checkout-button">Continue to checkout ↗</button>
+        <p>Shipping and taxes calculated at checkout.</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
